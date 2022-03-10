@@ -9,6 +9,8 @@ function HashTable(size) {
 // linear probing
 HashTable.prototype.put = function(key, value) {
     if(this.limit >= this.size) throw 'hash table is full size.'
+    if(this.keys.some(element => element == key)) throw 'key must be unique.'
+    
     let handleIndex = this.hash(key);
 
     while(this.keys(handleIndex) != null) {
@@ -22,6 +24,8 @@ HashTable.prototype.put = function(key, value) {
 }
 
 HashTable.prototype.get = function(key) {
+    if(!this.keys.includes(key)) throw 'this pair is not in the hash table.'
+
     let handleIndex = this.hash(key);
     while(this.keys[handleIndex] != key) {
         handleIndex++;
@@ -44,6 +48,8 @@ HashTable.prototype.putQuadratic = function(key, value) {
     if(this.limit >= this.size) {
         throw 'hash table are full size.'
     }
+    if(this.keys.some(element => element == key)) throw 'key must be unique.'
+
     let handleIndex = this.hash(key);
     let squareIndex = 1;
 
@@ -60,6 +66,8 @@ HashTable.prototype.putQuadratic = function(key, value) {
 }
 
 HashTable.prototype.getQuadratic = function(key) {
+    if(!this.keys.includes(key)) throw 'this pair is not in the hash table.'
+
     let handleIndex = this.hash(key);
     let squareIndex = 1;
 
@@ -83,6 +91,8 @@ HashTable.prototype.hashQuadratic = function(key) {
 HashTable.prototype.putDb = function(key, value) {
     if(this.limit >= this.size) throw 'hash table is full size.'
 
+    if(this.keys.some(element => element == key)) throw 'key must be unique.'
+
     let handleIndex = this.hashDb(key);
     while(this.keys[handleIndex] != null) {
         handleIndex++;
@@ -95,7 +105,10 @@ HashTable.prototype.putDb = function(key, value) {
 }
 
 HashTable.prototype.getDb = function(key) {
+    if(!this.keys.includes(key)) throw 'this pair is not in the hash table.'
+
     let handleIndex = this.hashDb(key);
+
     while(this.keys[handleIndex] != key) {
         handleIndex++;
         handleIndex %= this.size;
