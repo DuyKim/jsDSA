@@ -1,0 +1,40 @@
+Hash tables are excellent for quick storage and retrieval of data based on key-value pairs. In Javascript, Javascript objects work this way by defining a key (property) and its associated value.
+
+A hash table contains two main functions that is put() and get().
+    put(): is used for storing data into the hash tables
+    get(): is used for retireving data from the hash table.
+
+In a nutshell, a hash table is analogous to an array whose index is calculated with a hasing function to indentify a space in memory uniquely.
+
+Hashing techniques
+    the most important part of a hash table is the hash function. The hash function converts a specified key into an index for an array that stores all of the data.
+    The 3 primary requirements for a good hash function are as follows:
+        Deterministic: Equal keys produce equal hash values.
+        Efficiency: It should be O(1) time.
+        Uniform distribution: It makes the most use of an array.
+    
+
+With a perfect hashing function, there are no collisions. However, collision-free hashing is almost impossible in most cases. Therefore, strategies for handling collisions are needed for hash tables.
+
+Probing
+
+To work around occurring collisions, the probing hashing technique finds the next available index in the array.
+    The linear probing technique resolves conflicts by finding the next available index via increments trials
+    while quadratic probing uses quadratic functions to generate increment trials.
+
+Linear Probing
+    works by finding the next available index by incrementing one index at a time.
+    the main disadvantage of linear probing is it easily creates clusters, which are bad because more data to iterate through.
+
+Quadratic Probing
+    H + 1^2, h + 2^2, h + 3^3, h + 4^2
+
+Rehashing/double - hashing
+    Another great way to uniformly distribute the keys is by having a second hashing function that hashes the result from the original. These are the three primary requirements for a good second hash function:
+        Different: It needs to be different to distribute in better.
+        Efficiency: It should still be O(1) time.
+        Nonzero: It should never evaluate to zero. Zero gives the initial hash value.
+
+    hash2(x) = R - x % R
+    Here, x is the result from hashing the first time, and R is less than the size of the hash table. Each hash collision is resolved by the following, where i is the iteration trial number: i * hash(2)(x)
+
