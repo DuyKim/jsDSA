@@ -36,16 +36,14 @@ Stack.prototype.delete = function(position) {
     return this.array.splice(position, 1);
 }
 
-function getBuffer(stack) {
-
-    return stack.array.slice();
+Stack.prototype.getBuffer = function() {
+    return this.array.slice();
 }
-
 
 
 function search(stack, element) {
 
-    let bufferArray = getBuffer(stack);
+    let bufferArray = stack.getBuffer();
     let bufferStack = new Stack(bufferArray);
 
     while(!bufferStack.isEmpty()) {
