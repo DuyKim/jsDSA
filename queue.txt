@@ -1,0 +1,14 @@
+A Queue is also a data structure, but you can remove only the first added element.
+This is a principle known as first in, first out (FIFO).
+A Queue is also great because of the constant time in its operation
+Similiar to stack, it has limitations because only one item can be access at a time.
+Queues should be used over arrays when you need to work with data in the FIFO form where the algorithm only needs to access the first added element.
+
+In Javascript, arrays have methods that define the queue class: shiff() and push(). Recall that the shiff() method on an array in Js removes and returns the first added element of the array. Adding to a queue is commonly known as enqueuing and removing from a queue known as dequeuing.
+shiff() can be used for the dequeue, and push() can be used for enqueuing
+
+
+
+
+
+
