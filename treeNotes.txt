@@ -1,0 +1,80 @@
+TREE DATA STRUCUTURE
+
+The difficult structures are used for different kinds of data.
+
+Some factors are considered for choosing the data strucuture.
+
+    1. What type of data needs to be stored? 
+        It might be a possibilty that a certain data struture can be the best fit for some kind of data.
+
+    2. Cost of operations:
+        If we want to minimize the cost of for the operations for
+        the most frequently performed operations.
+        For example, we have create an array in which elements are stored 
+        in sorted order to perform the binary search.
+        The binary search works very fast for the simple list as 
+        it divides the search space into half.
+    
+    3. Memory usage:
+        Sometimes, we want a data structure that utilizes less memory.
+
+A tree is also one of the data structures that represent hierarchical data. Suposse we want to show the employees and their positions in the hierarchical form then it can be represented.
+
+Root: 
+    The root node is the topmost node in the tree hierarchy. In other words,
+    the root node is the one that doesn't have any parent. In the above structure,
+    node numbered 1 is the root node of the tree. If a node is directly linked to
+    some other node, it would be called a parent child relationship.
+
+Child node:
+    If the node is a descendant of any node, then the node is known as a child node.
+
+parent:
+    If the node contains any sub-node, then that node is said to be the parent of that sub-node.
+
+sibling:
+    The nodes that have the same parent are known as siblings.
+
+leaft node == external node:
+    The node of the tree, which doesn't have any child node.
+
+internal nodes:
+    A node has at least one child node known as an internal.
+
+ancestor nodes:
+    An ancestor of a node is any predecessor node on a path form
+    the root to that node.
+
+descendant: 
+    The immediate successor of the given node is known as a descendant of a node.
+
+
+Properties of Tree data structure:
+
+    Recursive data strucuture: 
+    Number of edges:
+    Depth of node X:
+        The depth of node X can be defined as the length of the path from the root to the node X.
+
+    Height of node X:
+        The height of node X can be defined as the longest path from the node X to the leaf node.
+
+Applications of trees:
+
+    Storing naturally hierarchical data:
+        Trees are used to store the data in the hierarchical structure.
+        For example, the file system. The file system store on the disc
+        drive, the file and folder are in the form of the naturally hierarchical
+        data and stored in the form of trees.
+
+    Organize data: 
+        It is used to organize data for efficient insertion, deletion and searching.
+        For example, a binary tree has a logN time for searching an element.
+
+Type of tree data structure
+    General tree
+    Binary tree
+    Binary search tree
+    avl tree
+    
+
