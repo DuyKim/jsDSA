@@ -1,0 +1,60 @@
+Linked list is used in a wide variety of applications such as:
+    1. Polynomial Manipulation representation
+    2. Addition of long positive intergers
+    3. Representation of square matrices
+    4. Addition of long positive intergers
+    5. Symbol table creation
+    6. Mailing list
+    7. Memory management
+    8. Linked allocation of files
+    9. Multipe precision arithmetic
+
+1. Polynomial Manipulation
+    Each node of a linked list representing polynomial constitute three parts:
+        The first part contains the value of the coefficient of the term.
+        The second part contains the value of the exponent
+        The third part, LINK points to the next term
+
+        || Coefficient || exponent || Linked
+            7               x^2         next
+
+
+    P(x) = 7x2 + 15x3 - 2x2 + 9
+
+2. Addition of Polynomial:
+
+    P(x) = 3x4 + 2x3 - 4x2 + 7
+    Q(x) = 5x3 + 4x2 - 5
+
+3. Addition of long positive interger using linked list
+    let a = 123456789
+    head -> 1 -> 2 -> 3 -> 4 ...
+
+4. Polynomial of Multipe Variables
+
+    coefficient || exponentX || exponentY || exponentZ || LINK
+
+    P(x, y, z) = 10x2y2z + 17xy2z3 ...
+
+5. Memory Management: it is one of the operating system's key features. 
+It decides how to allocate and reclaim storage for processes running on the system.
+We can use a linked list to keep tack of portions of memory available for allocation.
+
+6. Mailing list: Linked Lists have their use in email applications.
+Since it is difficult to predict multiple lists, maybe a mailer builds a linked list of addresses before sending a message.
+
+7. LISP: it is an acronym for LIST processor, an important programing language in AI.
+This language extensively uses linked lists in performing symbolic processing.
+
+8. Linked allocation of files: A file of large size may not be stored in one place on a disk.
+So there must be some mechanism to link all the scattered parts of the file together.
+The use of a linked list allows an efficient file allocation method in which each block of a file contains a pointer to the flie's text block.
+But this method is good only for sequential access.
+
+9. Virtual Memory: An interesting application of linked lists is found in the way systems support virtual memory.
+
+10. Support for other data structures: Some other data structures like stacks, queues, graphs, trees can be implemented using a linked list.
+
+
+
+
