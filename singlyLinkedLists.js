@@ -59,6 +59,12 @@ class SinglyLinkedListNode {
         if (!this.head) return undefined;
         let currentHead = this.head;
         let prev = null;
+        
+        if(this.size == 1) {
+            this.head = null;
+            this.tail = null;
+        }
+        
         while (currentHead.next) {
             prev = currentHead;
             currentHead = currentHead.next;
@@ -86,7 +92,8 @@ class SinglyLinkedListNode {
 
     get(index) {
         if (index < 0 || index > this.size - 1) return null;
-
+        if(index == 0) return this.head;
+        if(index == this.size - 1) return this.tail;
         let currentHead = this.head;
         let currentIndex = 0;
 
@@ -106,9 +113,9 @@ class SinglyLinkedListNode {
     }
 
     insert(index, value) {
-        if (index < 0 || index > this.size - 1) return undefined;
-        if (index == this.size - 1) return !!this.push(value);
-        if (index == 0) return !!this.unshift(value);
+        if (index < 0 || index > this.size) return undefined;
+        if (index == this.size) return this.push(value);
+        if (index == 0) return this.unshift(value);
 
         let newNode = new Node(value);
         let prevNewNode = this.get(index - 1);
@@ -171,7 +178,7 @@ class SinglyLinkedListNode {
                 prev = currentHead;
             } else {
                 prev.next = currentHead.next;
-                if(counter == len) {
+                if(currentHead == this.tail) {
                     this.tail = prev;
                 }   
                 this.size--;
@@ -182,12 +189,39 @@ class SinglyLinkedListNode {
 
         return this;
     }
+
+    removedCycle() {
+        let counter = 0,
+            currentHead = this.head;
+
+        while(currentHead) {
+            counter++;
+            currentHead = currentHead.next;
+            if(counter > this.size) break;
+        }
+        if(counter == this.size) return this;
+
+
+        // let mapLinkedList = new Map(),
+        //     prev = null,
+        //     current = this.head;
+        // for(let i = 0; i < this.size + 1; i++) {
+        //     if(!mapLinkedList.has(current)) {
+        //         mapLinkedList.set(current, current.value);
+        //         prev = current;
+        //         current = current.next;
+        //     } else {
+        //         prev.next = null;
+        //     }
+        // }
+        this.tail.next = null;
+    }
 }
 
 let singly = new SinglyLinkedListNode();
 
 function testPush(singly) {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         singly.push(i);
     }
 }
@@ -195,6 +229,7 @@ function testPush(singly) {
 testPush(singly);
 singly.push(2);
 singly.insert(1, 8)
+singly.tail.next = singly.head.next;
 console.log(singly);
-singly.deleteDuplicate();
-console.log(singly);
+singly.removedCycle();
+console.log(singly)
