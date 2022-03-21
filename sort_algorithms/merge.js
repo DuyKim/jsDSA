@@ -52,15 +52,11 @@ function Merge(arr, l, q, r) {
 
 function MergeIterative(arr, l, r) {
     let stack = [],
-        data = [],
-        middle = Math.floor((l + r) / 2);
+        data = [];
     
-    data.push([arr, l, middle, r])
-    
-    stack.push([arr, middle + 1, r])
-    stack.push([arr, l, middle])
+    stack.push([arr, l, r])
 
-    while(stack.length) {
+    do {
         let poppedPartArray = stack.pop();
         let [, left, right] = poppedPartArray;
 
@@ -70,10 +66,10 @@ function MergeIterative(arr, l, r) {
             stack.push([arr, left, middle])
             data.push([arr, left, middle, right])
         } 
-    }
+
+    } while (stack.length);
     
     let index = data.length - 1; 
-    
     while(index >= 0) {
         let [arr, left, middle, right] = data[index];
         Merge(arr, left, middle, right);

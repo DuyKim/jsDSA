@@ -152,6 +152,7 @@ class MinHeap extends BinaryHeap {
     bubbleDown() {
         let index = 0;
 
+
         while (this.leftChildNode(index) &&
             (this.leftChildNode(index) < this.getItem(index)
                 || this.rightChildNode(index) < this.getItem(index))) {
