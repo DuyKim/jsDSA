@@ -58,7 +58,7 @@ function MergeIterative(arr, l, r) {
 
     do {
         let poppedPartArray = stack.pop();
-        let [, left, right] = poppedPartArray;
+        let [_, left, right] = poppedPartArray;
 
         if(left < right) {
             let middle = Math.floor((right + left) / 2);
